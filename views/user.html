@@ -1,0 +1,82 @@
+<!-- user.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <!-- 외부 CSS 추가 -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/mvp.css@1.8.0/mvp.css">
+</head>
+<body>
+    <h1 >사용자 페이지</h1>
+
+    <div style="margin-bottom: 20px;">
+        <img id="pfp" src="" alt="사진" style="max-width: 50%; height: auto; margin-bottom: 10px;">
+    </div>
+
+    <div>
+        <label for="name">이름:</label>
+        <p id="name"></p>
+    </div>
+    
+    <div>
+        <label for="pronoun">대명사:</label>
+        <p id="pronoun"></p>
+    </div>
+    
+    <div>
+        <label for="introduction">소개:</label>
+        <p id="introduction"></p>
+    </div>
+    
+    <div>
+        <label for="twitterID" id="labelTwitterID">링크:</label>
+        <a id="twitterID" href=""></a>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var name = '{name}';
+            var pronoun = '{pronoun}';
+            var introduction = '{introduction}';
+            var twitterID = '{twitterID}';
+            //var pfp = '{pfp}';
+
+            document.getElementById('name').innerText = name;
+            document.getElementById('pronoun').innerText = pronoun;
+            document.getElementById('introduction').innerText = introduction;
+            //document.getElementById('pfp').src = pfp;
+
+            if(twitterID == "_"){
+                document.getElementById('twitterID').innerText = "";
+                document.getElementById('labelTwitterID').innerText = "";
+            }   else {
+                if(twitterID.startsWith("@"))  {
+                    //twitterID의 첫 글자 없애기 
+                    twitterID = twitterID.substring(1);
+                }
+                document.getElementById('twitterID').innerText = name + "의 트위터로!";
+                document.getElementById('twitterID').href = "https://twitter.com/"+twitterID;
+            }
+            
+        });
+    </script>
+</body>
+<style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; /* 최소 높이를 100vh로 설정 */
+      min-width:min-content;
+      margin: 0; /* body의 margin을 0으로 설정하여 스크롤 영역을 최대화합니다. */
+    }
+
+    #uploadedImage {
+      max-width: 100%; /* 이미지의 최대 너비를 부모 요소에 맞게 설정 */
+      max-height: 100%; /* 이미지의 최대 높이를 부모 요소에 맞게 설정 */
+    }
+  </style>
+</html>

@@ -1,0 +1,78 @@
+<!-- create.html -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Page</title>
+    <!-- 외부 CSS 추가 -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/mvp.css@1.8.0/mvp.css">
+</head>
+
+<body>
+    <h1>사용자 페이지 만들기</h1>
+
+    <form action="/create" method="post">
+        <div>
+            <label for="name">사용자 사진:</label>
+            <input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload(event)">
+            <img id="uploadedImage" style="font-size: 12px; color: #777;" alt="불러오지 않았습니다.">
+        </div>
+
+        <div>
+            <label for="name">*이름:</label>
+            <input type="text" id="name" name="name" placeholder="홍길동" required>
+        </div>
+
+        <div>
+            <label for="pronoun">*💙️이렇게 불러주세요:</label>
+            <input type="text" id="pronoun" name="pronoun" placeholder="여성 혹은 중성 대명사" required>
+        </div>
+
+        <div>
+            <label for="pronoun">*💔️이렇게 부르지 마세요:</label>
+            <input type="text" id="nopronoun" name="nopronoun" placeholder="남성 대명사" required>
+        </div>
+
+        <div>
+            <label for="introduction">*소개:</label>
+            <textarea id="introduction" name="introduction" rows="4" required></textarea>
+        </div>
+
+        <div>
+            <label for="twitterID">트위터ID:</label>
+            <span style="font-size: 12px; color: #777;">없다면 빈칸으로 두세요</span>
+            <input type="text" id="twitterId" name="twitterId" placeholder="@example">
+        </div>
+
+        <div>
+            <button type="submit">사용자 페이지 생성</button>
+        </div>
+    </form>
+
+
+
+</body>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        /* 최소 높이를 100vh로 설정 */
+        min-width:min-content;
+        margin: 0;
+        /* body의 margin을 0으로 설정하여 스크롤 영역을 최대화합니다. */
+    }
+
+    #uploadedImage {
+        max-width: 100%;
+        /* 이미지의 최대 너비를 부모 요소에 맞게 설정 */
+        max-height: 100%;
+        /* 이미지의 최대 높이를 부모 요소에 맞게 설정 */
+    }
+</style>
+
+</html>
